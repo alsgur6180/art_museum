@@ -1,28 +1,41 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { Text, StyleSheet, Image, ScrollView } from "react-native";
 import monalisa from "./arts/Mona_Lisa.jpg";
-
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 export default function Main(props) {
     return (
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
             <Text style={styles.font}>방구석 미술관</Text>
             <Image source={monalisa} style={styles.image}></Image>
-        </View>
+            <Image source={monalisa} style={styles.image}></Image>
+            <Image source={monalisa} style={styles.image}></Image>
+            <Image source={monalisa} style={styles.image}></Image>
+            <Image source={monalisa} style={styles.image}></Image>
+            <Image source={monalisa} style={styles.image}></Image>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+        marginBottom: 20,
     },
     font: {
+        textAlign: "center",
         paddingTop: 20,
         height: 80,
         fontSize: 30,
-        justifyContent: "center",
-        alignItems: "center",
     },
     image: {
         flex: 1,
+        width: wp("90%"),
+        height: hp("90%"),
+        paddingTop: 20,
     },
 });
