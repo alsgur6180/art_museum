@@ -7,15 +7,10 @@ import {
 } from "react-native-responsive-screen";
 export default function Main(props) {
     return (
-        <ScrollView contentContainerStyle={styles.container}>
+        <View contentContainerStyle={styles.container}>
             <Text style={styles.font}>방구석 미술관</Text>
             <Image source={monalisa} style={styles.image}></Image>
-            <Image source={monalisa} style={styles.image}></Image>
-            <Image source={monalisa} style={styles.image}></Image>
-            <Image source={monalisa} style={styles.image}></Image>
-            <Image source={monalisa} style={styles.image}></Image>
-            <Image source={monalisa} style={styles.image}></Image>
-        </ScrollView>
+        </View>
     );
 }
 
