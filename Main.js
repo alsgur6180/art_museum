@@ -1,15 +1,18 @@
 import React from "react";
-import { Text, StyleSheet, Image, ScrollView } from "react-native";
+import { Text, StyleSheet, Image, ScrollView, DevSettings } from "react-native";
 import monalisa from "./arts/Mona_Lisa.jpg";
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import Description from "./Description";
+
 export default function Main(props) {
     return (
         <View contentContainerStyle={styles.container}>
             <Text style={styles.font}>방구석 미술관</Text>
             <Image source={monalisa} style={styles.image}></Image>
+            <Description></Description>
         </View>
     );
 }
