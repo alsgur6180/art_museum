@@ -5,7 +5,7 @@ import Loading from "./Loading";
 import Main from "./Main";
 
 export default function App() {
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     return (
         <View style={styles.container}>
             {isLoading ? <Loading /> : <Main />}
