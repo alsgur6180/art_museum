@@ -1,5 +1,13 @@
-import React from "react";
-import { Text, StyleSheet, Image, ScrollView, DevSettings } from "react-native";
+import React, { useState } from "react";
+import {
+    Text,
+    StyleSheet,
+    Image,
+    View,
+    Modal,
+    Alert,
+    Pressable,
+} from "react-native";
 import monalisa from "./arts/Mona_Lisa.jpg";
 import {
     widthPercentageToDP as wp,
@@ -8,11 +16,27 @@ import {
 import Description from "./Description";
 
 export default function Main(props) {
+    const [modalVisible, setModalVisible] = useState(false);
     return (
         <View contentContainerStyle={styles.container}>
             <Text style={styles.font}>방구석 미술관</Text>
-            <Image source={monalisa} style={styles.image}></Image>
-            <Description></Description>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                    setModalVisible(!modalVisible);
+                }}
+            >
+                <Description></Description>
+                <Pressable onPress={() => setModalVisible(!modalVisible)}>
+                    <Text>hide</Text>
+                </Pressable>
+            </Modal>
+            <Pressable onPress={() => setModalVisible(!modalVisible)}>
+                <Image source={monalisa} style={styles.image}></Image>
+            </Pressable>
         </View>
     );
 }
