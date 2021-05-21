@@ -1,10 +1,44 @@
-import React from "react";
-import { StyleSheet, Text, View, Button, Image } from "react-native";
+import React, { useState } from "react";
+import {
+    StyleSheet,
+    Text,
+    View,
+    Image,
+    Share,
+    TouchableOpacity,
+} from "react-native";
 import heart_1 from "./icons/heart_1.png";
 import heart_2 from "./icons/heart_2.png";
 import share from "./icons/share.png";
 
 const Description = () => {
+    const [heart, setHeart] = useState(heart_1);
+    const [like, setLike] = useState(false);
+    const likeToggle = () => {
+        setLike(!like);
+        if (like == "true") {
+            setHeart(heart_2);
+        }
+    };
+    const onShare = async () => {
+        try {
+            const result = await Share.share({
+                message:
+                    "React Native | A framework for building native apps using React",
+            });
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                // dismissed
+            }
+        } catch (error) {
+            alert(error.message);
+        }
+    };
     return (
         <View style={styles.container}>
             <View style={styles.modal}>
@@ -16,8 +50,12 @@ const Description = () => {
                     <Text style={styles.author}>레오나르도 다빈치</Text>
                 </View>
                 <View style={styles.icons}>
-                    <Image source={heart_1} style={styles.icon}></Image>
-                    <Image source={share} style={styles.icon}></Image>
+                    <TouchableOpacity onPress={onShare}>
+                        <Image style={styles.icon} source={share}></Image>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={likeToggle}>
+                        <Image style={styles.icon} source={heart_2}></Image>
+                    </TouchableOpacity>
                 </View>
                 <Text style={styles.description}>
                     모나리자(영어: Mona Lisa) 또는 라 조콘다(이탈리아어:
@@ -76,6 +114,7 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40,
         marginHorizontal: 50,
+        color: "white",
     },
     description: {
         lineHeight: 20,

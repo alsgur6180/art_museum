@@ -1,13 +1,6 @@
 import React, { useState } from "react";
-import {
-    Text,
-    StyleSheet,
-    Image,
-    View,
-    Modal,
-    Alert,
-    Pressable,
-} from "react-native";
+import { Text, StyleSheet, Image, View, Alert, Pressable } from "react-native";
+import Modal from "react-native-modal";
 import monalisa from "./arts/Mona_Lisa.jpg";
 import {
     widthPercentageToDP as wp,
@@ -21,7 +14,8 @@ export default function Main(props) {
         <View contentContainerStyle={styles.container}>
             <Text style={styles.font}>방구석 미술관</Text>
             <Modal
-                animationType="slide"
+                animationType="slideInSide"
+                onBackdropPress={() => setModalVisible(!modalVisible)}
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => {
@@ -30,9 +24,6 @@ export default function Main(props) {
                 }}
             >
                 <Description></Description>
-                <Pressable onPress={() => setModalVisible(!modalVisible)}>
-                    <Text>hide</Text>
-                </Pressable>
             </Modal>
             <Pressable onPress={() => setModalVisible(!modalVisible)}>
                 <Image source={monalisa} style={styles.image}></Image>
@@ -59,5 +50,9 @@ const styles = StyleSheet.create({
         width: wp("90%"),
         height: hp("90%"),
         paddingTop: 20,
+    },
+    description: {
+        width: wp("10%"),
+        height: hp("10%"),
     },
 });
