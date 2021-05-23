@@ -1,14 +1,31 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
+
 import { StyleSheet, Text, View } from "react-native";
+
 import Loading from "./Loading";
+
 import Main from "./Main";
 
 export default function App() {
-    const [isLoading, setIsLoading] = useState(true);
+    const [ state, setState ] = useState({
+        isLoading: true,
+    });
+
+    function startMain(){
+        setTimeout(() => {
+            setState({
+                isLoading: false,
+            })
+        }, 3000);
+    }
+    
+    startMain();
+
+    const { isLoading } = state;
+
     return (
-        <View style={styles.container}>
-            {isLoading ? <Loading /> : <Main />}
+        <View style={ styles.container }>
+            { isLoading ? <Loading /> : <Main /> }
         </View>
     );
 }

@@ -1,18 +1,13 @@
 import React from "react";
-import { Text, StyleSheet, Image, ScrollView } from "react-native";
+
+import { Text, StyleSheet, Image, View } from "react-native";
+
 import monalisa from "./arts/Mona_Lisa.jpg";
+
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-export default function Main(props) {
-    return (
-        <View contentContainerStyle={styles.container}>
-            <Text style={styles.font}>방구석 미술관</Text>
-            <Image source={monalisa} style={styles.image}></Image>
-        </View>
-    );
-}
 
 const styles = StyleSheet.create({
     container: {
@@ -34,3 +29,14 @@ const styles = StyleSheet.create({
         paddingTop: 20,
     },
 });
+
+export default function Main() {
+    return (
+        <View contentContainerStyle={styles.container}>
+            <Text style={styles.font}>방구석 미술관</Text>
+            <Image source={monalisa} style={styles.image}></Image>
+        </View>
+    );
+}
+
+
