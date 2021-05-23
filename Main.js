@@ -26,30 +26,7 @@ export default function Main(props) {
             <View style={styles.header}>
                 <Text style={styles.title}>방구석 미술관</Text>
             </View>
-            <TouchableOpacity
-                onPress={() => setModalVisible(!modalVisible)}
-                style={styles.info}
-            >
-                <View>
-                    <FontAwesome5
-                        name="info"
-                        size={40}
-                        color="black"
-                    ></FontAwesome5>
-                </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => setModalVisible(!modalVisible)}
-                style={styles.user}
-            >
-                <View>
-                    <FontAwesome5
-                        name="user"
-                        size={40}
-                        color="black"
-                    ></FontAwesome5>
-                </View>
-            </TouchableOpacity>
+
             <ViewPager
                 style={styles.pager}
                 orientation={"vertical"}
@@ -69,13 +46,33 @@ export default function Main(props) {
                     >
                         <Description name={"monalisa"}></Description>
                     </Modal>
-                    <Pressable
-                        onPress={() =>
-                            key == "1" ? setModalVisible(!modalVisible) : none
-                        }
+                    {/* <Pressable onPress={() => setModalVisible(!modalVisible)}> */}
+                    <Image source={monalisa} style={styles.image}></Image>
+                    <TouchableOpacity
+                        onPress={() => setModalVisible(!modalVisible)}
+                        style={styles.info}
                     >
-                        <Image source={monalisa} style={styles.image}></Image>
-                    </Pressable>
+                        <View>
+                            <FontAwesome5
+                                name="info"
+                                size={40}
+                                color="white"
+                            ></FontAwesome5>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => setModalVisible(!modalVisible)}
+                        style={styles.user}
+                    >
+                        <View>
+                            <FontAwesome5
+                                name="user"
+                                size={40}
+                                color="white"
+                            ></FontAwesome5>
+                        </View>
+                    </TouchableOpacity>
+                    {/* </Pressable> */}
                 </View>
                 <View style={styles.page} key="2">
                     <Modal
@@ -93,6 +90,30 @@ export default function Main(props) {
                     <Pressable onPress={() => setModalVisible(!modalVisible)}>
                         <Image source={kiss} style={styles.image}></Image>
                     </Pressable>
+                    <TouchableOpacity
+                        onPress={() => setModalVisible(!modalVisible)}
+                        style={styles.info}
+                    >
+                        <View>
+                            <FontAwesome5
+                                name="info"
+                                size={40}
+                                color="white"
+                            ></FontAwesome5>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => setModalVisible(!modalVisible)}
+                        style={styles.user}
+                    >
+                        <View>
+                            <FontAwesome5
+                                name="user"
+                                size={40}
+                                color="white"
+                            ></FontAwesome5>
+                        </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.page} key="3">
                     <Modal
@@ -110,6 +131,30 @@ export default function Main(props) {
                     <Pressable onPress={() => setModalVisible(!modalVisible)}>
                         <Image source={monalisa} style={styles.image}></Image>
                     </Pressable>
+                    <TouchableOpacity
+                        onPress={() => setModalVisible(!modalVisible)}
+                        style={styles.info}
+                    >
+                        <View>
+                            <FontAwesome5
+                                name="info"
+                                size={40}
+                                color="white"
+                            ></FontAwesome5>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => setModalVisible(!modalVisible)}
+                        style={styles.user}
+                    >
+                        <View>
+                            <FontAwesome5
+                                name="user"
+                                size={40}
+                                color="white"
+                            ></FontAwesome5>
+                        </View>
+                    </TouchableOpacity>
                 </View>
             </ViewPager>
         </View>
@@ -119,6 +164,7 @@ export default function Main(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        position: "relative",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-evenly",
@@ -151,11 +197,12 @@ const styles = StyleSheet.create({
     info: {
         position: "absolute",
         left: 20,
-        top: 20,
+        top: 350,
+        color: "black",
     },
     user: {
         position: "absolute",
         right: 20,
-        top: 20,
+        top: 350,
     },
 });
