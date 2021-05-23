@@ -1,6 +1,9 @@
 import { StatusBar } from "expo-status-bar";
+
 import React from "react";
+
 import { Image, StyleSheet, Text, View } from "react-native";
+
 import logo from "./icons/museum_icon.png";
 
 export default function Loading() {

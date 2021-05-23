@@ -1,34 +1,14 @@
 import React, { useState } from "react";
 
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import Loading from "./Loading";
 
 import Main from "./Main";
 
-export default function App() {
-    const [ state, setState ] = useState({
-        isLoading: true,
-    });
+import MyPage from './MyPage';
 
-    function startMain(){
-        setTimeout(() => {
-            setState({
-                isLoading: false,
-            })
-        }, 3000);
-    }
-    
-    startMain();
-
-    const { isLoading } = state;
-
-    return (
-        <View style={ styles.container }>
-            { isLoading ? <Loading /> : <Main /> }
-        </View>
-    );
-}
+import DetailsPage from './DetailsPage';
 
 const styles = StyleSheet.create({
     container: {
@@ -41,3 +21,48 @@ const styles = StyleSheet.create({
         fontSize: 40,
     },
 });
+
+export default function App() {
+    const [ state, setState ] = useState({
+        isLoading: true,
+    });
+
+    const startMain = () => {
+        setTimeout(() => {
+            setState({
+                isLoading: false,
+            })
+        }, 3000);
+    }
+    
+    const leftAction = () => {
+        return (
+            <DetailsPage styles={styles} />
+        )
+        
+    }
+
+    const rightAction = () => {
+        return (
+            <MyPage styles={styles} />
+        )
+        
+    }
+
+    startMain();
+
+    const { isLoading } = state;
+
+    return (
+        <View style={styles.container}>
+            { isLoading ? <Loading />
+                : <Main 
+                    leftAction={ leftAction }
+                    rightAction={ rightAction }
+                  /> 
+            }
+        </View>
+    );
+}
+
+

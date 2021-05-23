@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text, StyleSheet, Image, View } from "react-native";
+import { Text, StyleSheet, ImageBackground, View } from "react-native";
 
 import monalisa from "./arts/Mona_Lisa.jpg";
 
@@ -8,6 +8,8 @@ import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 const styles = StyleSheet.create({
     container: {
@@ -24,17 +26,29 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        width: wp("90%"),
+        width: wp("100%"),
         height: hp("90%"),
-        paddingTop: 20,
     },
 });
 
-export default function Main() {
+export default function Main({ leftAction, rightAction }) {
     return (
-        <View contentContainerStyle={styles.container}>
+        <View styles={ styles.container }>
             <Text style={styles.font}>방구석 미술관</Text>
-            <Image source={monalisa} style={styles.image}></Image>
+            <ImageBackground  
+                source={monalisa} 
+                style={styles.image}
+            >
+                <Swipeable
+                    containerStyle={{
+                        width: '100%',
+                        height: '100%',
+                    }}
+                    renderRightActions={ rightAction }
+                    renderLeftActions={ leftAction }             
+                >                                 
+                </Swipeable>
+            </ImageBackground >
         </View>
     );
 }
