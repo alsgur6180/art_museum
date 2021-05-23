@@ -57,7 +57,7 @@ const Description = () => {
                         <Image style={styles.icon} source={heart_2}></Image>
                     </TouchableOpacity>
                 </View>
-                <Text style={styles.description}>
+                <Text numberOfLines={11} style={styles.description}>
                     모나리자(영어: Mona Lisa) 또는 라 조콘다(이탈리아어:
                     La_Gioconda, 프랑스어: La_Joconde)는 16세기 르네상스 시대에
                     레오나르도 다 빈치가 그린 초상화로, 현재 프랑스 파리 루브르
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     modal: {
         width: "80%",
         height: "70%",
-        backgroundColor: "rgba(0,0,0,0.5)",
+        backgroundColor: "rgba(0,0,0,0.2)",
         paddingVertical: 60,
         paddingHorizontal: 20,
         borderRadius: 15,
