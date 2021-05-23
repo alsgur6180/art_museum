@@ -1,15 +1,25 @@
 import React, { useState } from "react";
-import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    Share,
-    TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Text, View, Share, TouchableOpacity } from "react-native";
 import { Octicons, FontAwesome5 } from "@expo/vector-icons";
 
-const Description = () => {
+const works = {
+    monalisa: {
+        title: "Mona Lisa",
+        year: "1503",
+        author: "레오나르도 다빈치",
+        description:
+            "모나리자(영어: Mona Lisa) 또는 라 조콘다(이탈리아어:La_Gioconda, 프랑스어: La_Joconde)는 16세기 르네상스 시대에 레오나르도 다 빈치가 그린 초상화로, 현재 프랑스 파리 루브르 박물관에 전시되어 있다. '모나'(mona)는 유부녀 이름 앞에 붙이는 이탈리아어 경칭이고, '리자'(Lisa)는 초상화의 모델이 된 여인의 이름이다. 즉, 한국어로 하면 '리자 여사'라는 뜻이 된다. 이탈리어로 '라 조콘다(Giocondo)'는 '조콘도의 부인'또는 '명랑한 여자', '웃고 있는 여자'라는 뜻이다.",
+    },
+    kiss: {
+        title: "Kiss",
+        year: "1908",
+        author: "구스타프 클림트",
+        description:
+            "키스(독일어: Der Kuss)는 오스트리아 상징주의 작가 구스타프 클림트가 1907-1908년 황금시기에 그린 그림이다. 이 시기는 클림트의 전성기로 도금하는 기법으로 다수의 그림을 남겼다.",
+    },
+};
+
+const Description = ({ name }) => {
     const [like, setLike] = useState(false);
     const likeToggle = () => {
         setLike(!like);
@@ -37,11 +47,11 @@ const Description = () => {
         <View style={styles.container}>
             <View style={styles.modal}>
                 <View style={styles.header}>
-                    <Text style={styles.title}>Mona Lisa</Text>
-                    <Text style={styles.year}>(1503)</Text>
+                    <Text style={styles.title}>{works[name].title}</Text>
+                    <Text style={styles.year}>({works[name].year})</Text>
                 </View>
                 <View>
-                    <Text style={styles.author}>레오나르도 다빈치</Text>
+                    <Text style={styles.author}>{works[name].author}</Text>
                 </View>
                 <View style={styles.icons}>
                     <TouchableOpacity onPress={onShare}>
@@ -60,14 +70,7 @@ const Description = () => {
                     </TouchableOpacity>
                 </View>
                 <Text numberOfLines={11} style={styles.description}>
-                    모나리자(영어: Mona Lisa) 또는 라 조콘다(이탈리아어:
-                    La_Gioconda, 프랑스어: La_Joconde)는 16세기 르네상스 시대에
-                    레오나르도 다 빈치가 그린 초상화로, 현재 프랑스 파리 루브르
-                    박물관에 전시되어 있다. "모나"(mona)는 유부녀 이름 앞에
-                    붙이는 이탈리아어 경칭이고, "리자"(Lisa)는 초상화의 모델이
-                    된 여인의 이름이다. 즉, 한국어로 하면 "리자 여사"라는 뜻이
-                    된다. 이탈리어로 "라 조콘다(Giocondo)"는 "조콘도의 부인"
-                    또는 "명랑한 여자", "웃고 있는 여자"라는 뜻이다.
+                    {works[name].description}
                 </Text>
             </View>
         </View>

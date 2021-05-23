@@ -6,17 +6,18 @@ import {
     View,
     Alert,
     Pressable,
-    Button,
     TouchableOpacity,
 } from "react-native";
 import Modal from "react-native-modal";
 import monalisa from "./arts/Mona_Lisa.jpg";
+import kiss from "./arts/kiss.jpg";
 import ViewPager from "@react-native-community/viewpager";
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Description from "./Description";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function Main(props) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -24,8 +25,31 @@ export default function Main(props) {
         <View contentContainerStyle={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.title}>방구석 미술관</Text>
-                <Button title={"마이페이지"}></Button>
             </View>
+            <TouchableOpacity
+                onPress={() => setModalVisible(!modalVisible)}
+                style={styles.info}
+            >
+                <View>
+                    <FontAwesome5
+                        name="info"
+                        size={40}
+                        color="black"
+                    ></FontAwesome5>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => setModalVisible(!modalVisible)}
+                style={styles.user}
+            >
+                <View>
+                    <FontAwesome5
+                        name="user"
+                        size={40}
+                        color="black"
+                    ></FontAwesome5>
+                </View>
+            </TouchableOpacity>
             <ViewPager
                 style={styles.pager}
                 orientation={"vertical"}
@@ -43,9 +67,13 @@ export default function Main(props) {
                             setModalVisible(!modalVisible);
                         }}
                     >
-                        <Description></Description>
+                        <Description name={"monalisa"}></Description>
                     </Modal>
-                    <Pressable onPress={() => setModalVisible(!modalVisible)}>
+                    <Pressable
+                        onPress={() =>
+                            key == "1" ? setModalVisible(!modalVisible) : none
+                        }
+                    >
                         <Image source={monalisa} style={styles.image}></Image>
                     </Pressable>
                 </View>
@@ -60,10 +88,10 @@ export default function Main(props) {
                             setModalVisible(!modalVisible);
                         }}
                     >
-                        <Description></Description>
+                        <Description name={"kiss"}></Description>
                     </Modal>
                     <Pressable onPress={() => setModalVisible(!modalVisible)}>
-                        <Image source={monalisa} style={styles.image}></Image>
+                        <Image source={kiss} style={styles.image}></Image>
                     </Pressable>
                 </View>
                 <View style={styles.page} key="3">
@@ -77,7 +105,7 @@ export default function Main(props) {
                             setModalVisible(!modalVisible);
                         }}
                     >
-                        <Description></Description>
+                        <Description name={"monalisa"}></Description>
                     </Modal>
                     <Pressable onPress={() => setModalVisible(!modalVisible)}>
                         <Image source={monalisa} style={styles.image}></Image>
@@ -112,11 +140,22 @@ const styles = StyleSheet.create({
         width: wp("100%"),
     },
     page: {
+        display: "flex",
         justifyContent: "center",
         alignItems: "center",
     },
     description: {
         width: wp("10%"),
         height: hp("10%"),
+    },
+    info: {
+        position: "absolute",
+        left: 20,
+        top: 20,
+    },
+    user: {
+        position: "absolute",
+        right: 20,
+        top: 20,
     },
 });
