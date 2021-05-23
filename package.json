@@ -18,7 +18,9 @@
     "react-native-dialog": "8.0.1",
     "react-native-modal": "11.10.0",
     "react-native-responsive-screen": "1.4.2",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "react-navigation": "4.4.4",
+    "react-navigation-drawer": "2.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

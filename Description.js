@@ -7,18 +7,12 @@ import {
     Share,
     TouchableOpacity,
 } from "react-native";
-import heart_1 from "./icons/heart_1.png";
-import heart_2 from "./icons/heart_2.png";
-import share from "./icons/share.png";
+import { Octicons, FontAwesome5 } from "@expo/vector-icons";
 
 const Description = () => {
-    const [heart, setHeart] = useState(heart_1);
     const [like, setLike] = useState(false);
     const likeToggle = () => {
         setLike(!like);
-        if (like == "true") {
-            setHeart(heart_2);
-        }
     };
     const onShare = async () => {
         try {
@@ -51,10 +45,18 @@ const Description = () => {
                 </View>
                 <View style={styles.icons}>
                     <TouchableOpacity onPress={onShare}>
-                        <Image style={styles.icon} source={share}></Image>
+                        <FontAwesome5
+                            name="share"
+                            size={32}
+                            color="white"
+                        ></FontAwesome5>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={likeToggle}>
-                        <Image style={styles.icon} source={heart_2}></Image>
+                        <Octicons
+                            name="heart"
+                            size={32}
+                            color={like ? "#ED4956" : "white"}
+                        ></Octicons>
                     </TouchableOpacity>
                 </View>
                 <Text numberOfLines={11} style={styles.description}>
@@ -108,6 +110,7 @@ const styles = StyleSheet.create({
     icons: {
         display: "flex",
         flexDirection: "row",
+        justifyContent: "space-around",
         margin: 10,
     },
     icon: {
