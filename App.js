@@ -1,14 +1,8 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
 import Loading from "./Loading";
-import Modal from "react-native-modal";
 import Main from "./Main";
-import tutorial from "./assets/tutorial.png";
-import {
-    heightPercentageToDP,
-    widthPercentageToDP,
-} from "react-native-responsive-screen";
 
 export default function App() {
     const [isLoading, setIsLoading] = useState(true);

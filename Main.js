@@ -5,28 +5,32 @@ import {
     Image,
     View,
     Alert,
-    Pressable,
     TouchableOpacity,
 } from "react-native";
 import Modal from "react-native-modal";
 import monalisa from "./arts/Mona_Lisa.jpg";
 import kiss from "./arts/kiss.jpg";
+import self_portrait from "./arts/self_portrait.jpg";
 import ViewPager from "@react-native-community/viewpager";
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Description from "./Description";
+import MyPage from "./MyPage";
+import Loading from "./Loading";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function Main(props) {
     const [modalVisible, setModalVisible] = useState(false);
+    const toMypage = () => {
+        return <Loading />;
+    };
     return (
-        <View contentContainerStyle={styles.container}>
+        <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.title}>방구석 미술관</Text>
             </View>
-
             <ViewPager
                 style={styles.pager}
                 orientation={"vertical"}
@@ -46,33 +50,8 @@ export default function Main(props) {
                     >
                         <Description name={"monalisa"}></Description>
                     </Modal>
-                    {/* <Pressable onPress={() => setModalVisible(!modalVisible)}> */}
+
                     <Image source={monalisa} style={styles.image}></Image>
-                    <TouchableOpacity
-                        onPress={() => setModalVisible(!modalVisible)}
-                        style={styles.info}
-                    >
-                        <View>
-                            <FontAwesome5
-                                name="info"
-                                size={40}
-                                color="white"
-                            ></FontAwesome5>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => setModalVisible(!modalVisible)}
-                        style={styles.user}
-                    >
-                        <View>
-                            <FontAwesome5
-                                name="user"
-                                size={40}
-                                color="white"
-                            ></FontAwesome5>
-                        </View>
-                    </TouchableOpacity>
-                    {/* </Pressable> */}
                 </View>
                 <View style={styles.page} key="2">
                     <Modal
@@ -87,33 +66,8 @@ export default function Main(props) {
                     >
                         <Description name={"kiss"}></Description>
                     </Modal>
-                    <Pressable onPress={() => setModalVisible(!modalVisible)}>
-                        <Image source={kiss} style={styles.image}></Image>
-                    </Pressable>
-                    <TouchableOpacity
-                        onPress={() => setModalVisible(!modalVisible)}
-                        style={styles.info}
-                    >
-                        <View>
-                            <FontAwesome5
-                                name="info"
-                                size={40}
-                                color="white"
-                            ></FontAwesome5>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => setModalVisible(!modalVisible)}
-                        style={styles.user}
-                    >
-                        <View>
-                            <FontAwesome5
-                                name="user"
-                                size={40}
-                                color="white"
-                            ></FontAwesome5>
-                        </View>
-                    </TouchableOpacity>
+
+                    <Image source={kiss} style={styles.image}></Image>
                 </View>
                 <View style={styles.page} key="3">
                     <Modal
@@ -126,37 +80,21 @@ export default function Main(props) {
                             setModalVisible(!modalVisible);
                         }}
                     >
-                        <Description name={"monalisa"}></Description>
+                        <Description name={"self_portrait"}></Description>
                     </Modal>
-                    <Pressable onPress={() => setModalVisible(!modalVisible)}>
-                        <Image source={monalisa} style={styles.image}></Image>
-                    </Pressable>
-                    <TouchableOpacity
-                        onPress={() => setModalVisible(!modalVisible)}
-                        style={styles.info}
-                    >
-                        <View>
-                            <FontAwesome5
-                                name="info"
-                                size={40}
-                                color="white"
-                            ></FontAwesome5>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => setModalVisible(!modalVisible)}
-                        style={styles.user}
-                    >
-                        <View>
-                            <FontAwesome5
-                                name="user"
-                                size={40}
-                                color="white"
-                            ></FontAwesome5>
-                        </View>
-                    </TouchableOpacity>
+
+                    <Image source={self_portrait} style={styles.image}></Image>
                 </View>
             </ViewPager>
+            <TouchableOpacity
+                onPress={() => setModalVisible(!modalVisible)}
+                style={styles.info}
+            >
+                <FontAwesome5 name="info" size={40} color="gray" />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => toMypage} style={styles.user}>
+                <FontAwesome5 name="user" size={40} color="gray" />
+            </TouchableOpacity>
         </View>
     );
 }
@@ -198,7 +136,6 @@ const styles = StyleSheet.create({
         position: "absolute",
         left: 20,
         top: 350,
-        color: "black",
     },
     user: {
         position: "absolute",
