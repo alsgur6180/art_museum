@@ -11,31 +11,15 @@ import {
 } from "react-native-responsive-screen";
 
 export default function App() {
-    const [isLoading, setIsLoading] = useState(false);
-    const [modalVisible, setModalVisible] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+    const startMain = () => {
+        setTimeout(() => setIsLoading(false), 3000);
+    };
+    startMain();
     return (
         <View style={styles.container}>
             <StatusBar hidden={true}></StatusBar>
-            <Modal
-                style={styles.tutorial}
-                animationType="slideInSide"
-                onBackdropPress={() => setModalVisible(!modalVisible)}
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                    Alert.alert("Modal has been closed.");
-                    setModalVisible(!modalVisible);
-                }}
-            >
-                <Pressable onPress={() => setModalVisible(!modalVisible)}>
-                    <Image
-                        resizeMode="stretch"
-                        resizeMethod="resize"
-                        source={tutorial}
-                    ></Image>
-                </Pressable>
-            </Modal>
-            {isLoading ? <Loading /> : <Main />}
+            <View>{isLoading ? <Loading /> : <Main />}</View>
         </View>
     );
 }
@@ -48,9 +32,5 @@ const styles = StyleSheet.create({
     },
     font: {
         fontSize: 40,
-    },
-    tutorial: {
-        width: widthPercentageToDP("100%"),
-        height: heightPercentageToDP("100%"),
     },
 });
