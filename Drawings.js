@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, FlatList, ActivityIndicator, TouchableOpacity, } from 'react-native';
+import { Pressable,View, Text, StyleSheet, Image, FlatList,} from 'react-native';
 import React from 'react';
 import { Dimensions,} from 'react-native';
 
@@ -9,9 +9,13 @@ const Drawings = () => {
             <FlatList
                 data={data}
                 renderItem={({item})=>
-                    <TouchableOpacity activeOpacity={0.8}>
-                    <Image style={styles.image} source={{uri:item.uri}}/>
-                    </TouchableOpacity>
+                     <Pressable
+                        onPress={()=>{
+                            alert('그림 선택');
+                        }}
+                    >
+                    <Image style={styles.image} source={item.img}/>
+                    </Pressable>
                 }
                 columnWrapperStyle={styles.imageRow}
                 numColumns={2}
@@ -23,16 +27,20 @@ const Drawings = () => {
 const data=[
     {
         id:1,
-        uri: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg'
+        img:require('./arts/Mona_Lisa.jpg'),
     },
     {
         id:2,
-        uri: 'https://upload.wikimedia.org/wikipedia/commons/4/40/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg'
+        img:require('./arts/The_Kiss.jpg'),
     },
     {
         id:3,
-        uri:'https://upload.wikimedia.org/wikipedia/commons/9/9d/Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg'
+        img:require('./arts/Sunflowers.jpg'),
     },
+    {
+        id:4,
+        img:require('./arts/The_Starry_Night.jpg'),
+    }
 ]
 
 const styles = StyleSheet.create({
