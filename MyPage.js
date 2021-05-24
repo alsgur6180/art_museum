@@ -3,7 +3,7 @@ import React from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 
 import BlankStyle from './BlankStyle';
-import Drawing from './Drawing';
+import Drawings from './Drawings';
 
 export default function MyPage({ styles }) {
     const { font } = styles;
@@ -30,7 +30,7 @@ export default function MyPage({ styles }) {
                 </Text>
             </View>
             <View style={styles1.drawingView}>
-                <Drawing />
+                <Drawings />
             </View>
         </View> 
     );
