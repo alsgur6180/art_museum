@@ -9,6 +9,7 @@ export default function App() {
     const startMain = () => {
         setTimeout(() => setIsLoading(false), 3000);
     };
+
     startMain();
     return (
         <View style={styles.container}>

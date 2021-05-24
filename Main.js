@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import Modal from "react-native-modal";
 import monalisa from "./arts/Mona_Lisa.jpg";
-import kiss from "./arts/kiss.jpg";
-import self_portrait from "./arts/self_portrait.jpg";
+import kiss from "./arts/The_Kiss.jpg";
+import self_portrait from "./arts/Self_Portrait.jpg";
 import ViewPager from "@react-native-community/viewpager";
 import {
     widthPercentageToDP as wp,
@@ -18,14 +18,11 @@ import {
 } from "react-native-responsive-screen";
 import Description from "./Description";
 import MyPage from "./MyPage";
-import Loading from "./Loading";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-export default function Main(props) {
+export default function Main() {
     const [modalVisible, setModalVisible] = useState(false);
-    const toMypage = () => {
-        return <Loading />;
-    };
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -54,7 +51,7 @@ export default function Main(props) {
                     <Image source={monalisa} style={styles.image}></Image>
                 </View>
                 <View style={styles.page} key="2">
-                    <Modal
+                    {/* <Modal
                         animationType="slideInSide"
                         onBackdropPress={() => setModalVisible(!modalVisible)}
                         transparent={true}
@@ -65,12 +62,12 @@ export default function Main(props) {
                         }}
                     >
                         <Description name={"kiss"}></Description>
-                    </Modal>
+                    </Modal> */}
 
                     <Image source={kiss} style={styles.image}></Image>
                 </View>
                 <View style={styles.page} key="3">
-                    <Modal
+                    {/* <Modal
                         animationType="slideInSide"
                         onBackdropPress={() => setModalVisible(!modalVisible)}
                         transparent={true}
@@ -81,18 +78,22 @@ export default function Main(props) {
                         }}
                     >
                         <Description name={"self_portrait"}></Description>
-                    </Modal>
+                    </Modal> */}
 
                     <Image source={self_portrait} style={styles.image}></Image>
                 </View>
             </ViewPager>
+
             <TouchableOpacity
                 onPress={() => setModalVisible(!modalVisible)}
                 style={styles.info}
             >
                 <FontAwesome5 name="info" size={40} color="gray" />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => toMypage} style={styles.user}>
+            <TouchableOpacity
+                onPress={() => alert("my page")}
+                style={styles.user}
+            >
                 <FontAwesome5 name="user" size={40} color="gray" />
             </TouchableOpacity>
         </View>
