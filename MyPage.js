@@ -5,7 +5,7 @@ import { Text, View, StyleSheet, Image } from "react-native";
 import BlankStyle from "./BlankStyle";
 import Drawings from "./Drawings";
 
-export default function MyPage() {
+export default function MyPage({ navigation }) {
     return (
         <View style={BlankStyle.container}>
             <View style={styles1.UserView}>
@@ -25,7 +25,7 @@ export default function MyPage() {
                 <Text>즐겨찾기</Text>
             </View>
             <View style={styles1.drawingView}>
-                <Drawings />
+                <Drawings navigation={navigation} />
             </View>
         </View>
     );

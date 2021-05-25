@@ -9,7 +9,7 @@ import {
 import React from "react";
 import { Dimensions } from "react-native";
 
-const Drawings = () => {
+const Drawings = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <FlatList
@@ -17,7 +17,7 @@ const Drawings = () => {
                 renderItem={({ item }) => (
                     <Pressable
                         onPress={() => {
-                            alert("그림 선택");
+                            navigation.navigate("방구석미술관");
                         }}
                     >
                         <Image style={styles.image} source={item.img} />

@@ -20,14 +20,11 @@ import Description from "./Description";
 import MyPage from "./MyPage";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-export default function Main() {
+export default function Main({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.title}>방구석 미술관</Text>
-            </View>
             <ViewPager
                 style={styles.pager}
                 orientation={"vertical"}
@@ -91,7 +88,7 @@ export default function Main() {
                 <FontAwesome5 name="info" size={40} color="gray" />
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => alert("my page")}
+                onPress={() => navigation.navigate("마이페이지")}
                 style={styles.user}
             >
                 <FontAwesome5 name="user" size={40} color="gray" />
