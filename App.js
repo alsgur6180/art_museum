@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import React from "react";
+import { StyleSheet } from "react-native";
 import Loading from "./Loading";
 import Main from "./Main";
 import MyPage from "./MyPage";
@@ -9,12 +8,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 export default function App() {
-    const [isLoading, setIsLoading] = useState(true);
-    const startMain = () => {
-        setTimeout(() => setIsLoading(false), 3000);
-    };
+    // const [isLoading, setIsLoading] = useState(true);
+    // const startMain = () => {
+    //     setTimeout(() => setIsLoading(false), 3000);
+    // };
 
-    startMain();
+    // startMain();
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Loading...">

@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-    Text,
-    StyleSheet,
-    Image,
-    View,
-    Alert,
-    TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Image, View, Alert, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import monalisa from "./arts/Mona_Lisa.jpg";
 import kiss from "./arts/The_Kiss.jpg";
@@ -44,39 +37,12 @@ export default function Main({ navigation }) {
                     >
                         <Description name={"monalisa"}></Description>
                     </Modal>
-
                     <Image source={monalisa} style={styles.image}></Image>
                 </View>
                 <View style={styles.page} key="2">
-                    {/* <Modal
-                        animationType="slideInSide"
-                        onBackdropPress={() => setModalVisible(!modalVisible)}
-                        transparent={true}
-                        visible={modalVisible}
-                        onRequestClose={() => {
-                            Alert.alert("Modal has been closed.");
-                            setModalVisible(!modalVisible);
-                        }}
-                    >
-                        <Description name={"kiss"}></Description>
-                    </Modal> */}
-
                     <Image source={kiss} style={styles.image}></Image>
                 </View>
                 <View style={styles.page} key="3">
-                    {/* <Modal
-                        animationType="slideInSide"
-                        onBackdropPress={() => setModalVisible(!modalVisible)}
-                        transparent={true}
-                        visible={modalVisible}
-                        onRequestClose={() => {
-                            Alert.alert("Modal has been closed.");
-                            setModalVisible(!modalVisible);
-                        }}
-                    >
-                        <Description name={"self_portrait"}></Description>
-                    </Modal> */}
-
                     <Image source={self_portrait} style={styles.image}></Image>
                 </View>
             </ViewPager>
@@ -139,5 +105,8 @@ const styles = StyleSheet.create({
         position: "absolute",
         right: 20,
         top: 350,
+    },
+    image: {
+        backgroundColor: "black",
     },
 });
