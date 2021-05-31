@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/viewpager": "5.0.11",
     "expo": "~41.0.1",
     "expo-cli": "4.4.7",
     "expo-status-bar": "~1.0.4",
@@ -15,9 +16,11 @@
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
     "react-native-dialog": "8.0.1",
-    "react-native-gesture-handler": "^1.10.3",
+    "react-native-modal": "11.10.0",
     "react-native-responsive-screen": "1.4.2",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "react-navigation": "4.4.4",
+    "react-navigation-drawer": "2.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
