@@ -8,11 +8,25 @@ import {
 import React from "react";
 import { Dimensions } from "react-native";
 
-const Drawings = ({ navigation }) => {
+const Drawings = ({ navigation, arts, selectedArts }) => {
+
+    const shownImg = [];
+    
+    arts.forEach((art) => {
+        selectedArts.forEach((likeArtId) => {
+            if(art.id === likeArtId){
+                shownImg.push({
+                    id: art.id,
+                    img: art.img,
+                });
+            }
+        });
+    });
+
     return (
         <View style={styles.container}>
             <FlatList
-                data={data}
+                data={shownImg}
                 renderItem={({ item }) => (
                     <Pressable
                         onPress={() => {

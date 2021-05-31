@@ -5,7 +5,10 @@ import { Text, View, StyleSheet, Image } from "react-native";
 import BlankStyle from "./BlankStyle";
 import Drawings from "./Drawings";
 
-export default function MyPage({ navigation }) {
+export default function MyPage({ navigation, route }) {
+    const arts = route.params.arts;
+    const selectedArts = route.params.selectedArts;
+
     return (
         <View style={BlankStyle.container}>
             <View style={styles1.UserView}>
@@ -25,7 +28,11 @@ export default function MyPage({ navigation }) {
                 <Text>즐겨찾기</Text>
             </View>
             <View style={styles1.drawingView}>
-                <Drawings navigation={navigation} />
+                <Drawings 
+                    navigation={navigation}
+                    arts={arts}
+                    selectedArts={selectedArts}
+                 />
             </View>
         </View>
     );
