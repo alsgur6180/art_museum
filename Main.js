@@ -49,6 +49,7 @@ export default function Main({ navigation, arts, onShare,
                         <Description 
                             arts={arts} 
                             id={id}
+                            key={1}
                             onShare={onShare} 
                             handleClickLike={ handleClickLike }
                             selectedArts={selectedArts}
@@ -70,7 +71,7 @@ export default function Main({ navigation, arts, onShare,
             <FontAwesome5 name="info" size={40} color="gray" />
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => navigation.navigate("마이페이지")}
+                onPress={() => navigation.navigate("마이페이지", { arts, selectedArts })}
                 style={styles.user}
             >
             <FontAwesome5 name="user" size={40} color="gray" />
