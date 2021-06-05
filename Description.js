@@ -24,6 +24,20 @@ const works = {
         description:
             "네덜란드 포스트 인상파 화가 빈센트 반 고흐 는 1889 년 9 월 캔버스 에 유화 로 자화상 을 그렸습니다 .이 작품은 반 고흐의 마지막 자화상 이었을지 모르지만 그가 남부의 생 레미 드 프로방스 를 떠나기 직전에 그렸습니다. 프랑스. [1] [2] [3] 이 그림은 현재 파리 오르세 미술관 에 있습니다 .",
     },
+    view_of_toledo: {
+        title: "View of Toledo",
+        year: "1600",
+        author: "엘 그레코",
+        description:
+            "톨레도의 전망은 Vincent van Gogh 의 The Starry Night 와 JMW Turner 와 Claude Monet 의 풍경 과 함께 서양 미술 에서 가장 잘 알려진 하늘 묘사 중 하나 입니다. 그의 에세이에서 미술사 학자 Keith Christiansen은 View of Toledo 가 El Greco의 걸작 중 하나 라고 주장합니다.",
+    },
+    woman_with_a_hat: {
+        title: "모자를 쓴 여인",
+        year: "1905",
+        author: "앙리 마티스",
+        description:
+            "모자를 쓴 여자는 Henri Matisse 의 그림입니다. 캔버스에 그려진 유채는 Matisse의 아내 Amelie를 묘사합니다.1905 년에 그렸고같은 해 가을에 Salon d' Automne 에서 André Derain , Maurice de Vlaminck 및 'Fauves'로 알려진 여러 예술가들의작품과 함께 전시되었습니다.",
+    },
 };
 
 const Description = ({ name }) => {
@@ -96,7 +110,7 @@ const styles = StyleSheet.create({
     modal: {
         width: "80%",
         height: "70%",
-        backgroundColor: "rgba(0,0,0,0.2)",
+        backgroundColor: "rgba(0,0,0,1)",
         paddingVertical: 60,
         paddingHorizontal: 20,
         borderRadius: 15,

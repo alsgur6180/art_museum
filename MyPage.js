@@ -36,7 +36,7 @@ const styles1 = StyleSheet.create({
         flex: 3,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "white",
+        backgroundColor: "#F0F0F0",
     },
     favoriteView: {
         flex: 1,

@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { StyleSheet, Image, View, Alert, TouchableOpacity } from "react-native";
+import {
+    StyleSheet,
+    Image,
+    View,
+    Alert,
+    TouchableOpacity,
+    Text,
+    Pressable,
+} from "react-native";
 import Modal from "react-native-modal";
 import monalisa from "./arts/Mona_Lisa.jpg";
 import kiss from "./arts/The_Kiss.jpg";
@@ -10,14 +18,15 @@ import {
     heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Description from "./Description";
-import MyPage from "./MyPage";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { StatusBar } from "expo-status-bar";
 
 export default function Main({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <View style={styles.container}>
+            <Text style={styles.title}>방구석 미술관</Text>
             <ViewPager
                 style={styles.pager}
                 orientation={"vertical"}
@@ -37,28 +46,32 @@ export default function Main({ navigation }) {
                     >
                         <Description name={"monalisa"}></Description>
                     </Modal>
-                    <Image source={monalisa} style={styles.image}></Image>
+                    <Pressable onPress={() => setModalVisible(!modalVisible)}>
+                        <Image source={monalisa} style={styles.image}></Image>
+                    </Pressable>
                 </View>
                 <View style={styles.page} key="2">
-                    <Image source={kiss} style={styles.image}></Image>
+                    <Pressable onPress={() => setModalVisible(!modalVisible)}>
+                        <Image source={kiss} style={styles.image}></Image>
+                    </Pressable>
                 </View>
                 <View style={styles.page} key="3">
-                    <Image source={self_portrait} style={styles.image}></Image>
+                    <Pressable onPress={() => setModalVisible(!modalVisible)}>
+                        <Image
+                            source={self_portrait}
+                            style={styles.image}
+                        ></Image>
+                    </Pressable>
                 </View>
             </ViewPager>
 
             <TouchableOpacity
-                onPress={() => setModalVisible(!modalVisible)}
-                style={styles.info}
-            >
-                <FontAwesome5 name="info" size={40} color="gray" />
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("마이페이지")}
+                onPress={() => navigation.navigate("청기사파")}
                 style={styles.user}
             >
                 <FontAwesome5 name="user" size={40} color="gray" />
             </TouchableOpacity>
+            <StatusBar style="auto" />
         </View>
     );
 }
@@ -66,22 +79,17 @@ export default function Main({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-evenly",
-        marginBottom: 20,
+        textAlign: "center",
     },
-    header: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-around",
+    loading: {
+        position: "absolute",
     },
     title: {
         textAlign: "center",
-        paddingTop: 20,
-        height: 80,
+        paddingTop: 10,
+        height: 60,
         fontSize: 30,
+        backgroundColor: "#F0F0F0",
     },
     pager: {
         flex: 1,
@@ -96,17 +104,14 @@ const styles = StyleSheet.create({
         width: wp("10%"),
         height: hp("10%"),
     },
-    info: {
-        position: "absolute",
-        left: 20,
-        top: 350,
-    },
+
     user: {
         position: "absolute",
         right: 20,
-        top: 350,
+        top: 10,
     },
     image: {
+        resizeMode: "contain",
         backgroundColor: "black",
     },
 });

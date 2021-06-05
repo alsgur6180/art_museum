@@ -7,7 +7,7 @@ export default function Loading({ navigation }) {
     return (
         <View style={styles.container}>
             <Image source={logo} style={styles.logo}></Image>
-            <Pressable onPress={() => navigation.navigate("방구석미술관")}>
+            <Pressable onPress={() => navigation.navigate("매너리즘")}>
                 <Text style={styles.font}>방구석 미술관</Text>
             </Pressable>
             <StatusBar style="auto" />

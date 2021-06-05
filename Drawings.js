@@ -17,7 +17,7 @@ const Drawings = ({ navigation }) => {
                 renderItem={({ item }) => (
                     <Pressable
                         onPress={() => {
-                            navigation.navigate("방구석미술관");
+                            navigation.navigate("매너리즘");
                         }}
                     >
                         <Image style={styles.image} source={item.img} />
@@ -41,11 +41,11 @@ const data = [
     },
     {
         id: 3,
-        img: require("./arts/Sunflowers.jpg"),
+        img: require("./arts/mannerism/View_of_Toledo.jpg"),
     },
     {
         id: 4,
-        img: require("./arts/The_Starry_Night.jpg"),
+        img: require("./arts/fauvism/모자를쓴여인.jpeg"),
     },
 ];
 
