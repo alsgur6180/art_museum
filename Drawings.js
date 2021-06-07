@@ -17,7 +17,7 @@ const Drawings = ({ navigation }) => {
                 renderItem={({ item }) => (
                     <Pressable
                         onPress={() => {
-                            navigation.navigate("매너리즘");
+                            navigation.navigate("야수파");
                         }}
                     >
                         <Image style={styles.image} source={item.img} />

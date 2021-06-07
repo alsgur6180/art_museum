@@ -12,6 +12,7 @@ import Modal from "react-native-modal";
 import viewOfToledo from "./arts/mannerism/View_of_Toledo.jpg";
 import nobleman from "./arts/mannerism/The_Nobleman.jpg";
 import carmignano from "./arts/mannerism/Carmignano.jpg";
+import tutorialImage from "./assets/tutorial.jpg";
 import ViewPager from "@react-native-community/viewpager";
 import {
     widthPercentageToDP as wp,
@@ -23,10 +24,24 @@ import { StatusBar } from "expo-status-bar";
 
 export default function Main({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
+    const [tutorial, setTutorial] = useState(true);
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>방구석 미술관</Text>
+            <Modal
+                animationType="slideInSide"
+                onBackdropPress={() => setTutorial(!tutorial)}
+                transparent={true}
+                visible={tutorial}
+            >
+                <Pressable onPress={() => setTutorial(!tutorial)}>
+                    <Image
+                        source={tutorialImage}
+                        style={styles.tutorial}
+                    ></Image>
+                </Pressable>
+            </Modal>
             <ViewPager
                 style={styles.pager}
                 orientation={"vertical"}
@@ -71,7 +86,7 @@ export default function Main({ navigation }) {
             >
                 <FontAwesome5 name="user" size={40} color="gray" />
             </TouchableOpacity>
-            <StatusBar hidden={true} />
+            <StatusBar hidden={true} visible={false} />
         </View>
     );
 }
@@ -81,8 +96,12 @@ const styles = StyleSheet.create({
         flex: 1,
         textAlign: "center",
     },
-    loading: {
+    tutorial: {
         position: "absolute",
+        resizeMode: "cover",
+        top: -400,
+        left: -25,
+        opacity: 0.6,
     },
     title: {
         textAlign: "center",
